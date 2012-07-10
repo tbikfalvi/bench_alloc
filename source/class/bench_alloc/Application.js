@@ -58,7 +58,7 @@ qx.Class.define("bench_alloc.Application",
       */
 
       // Create a button
-      var button1 = new qx.ui.form.Button("First Button", "bench_alloc/test.png");
+      var button1 = new qx.ui.form.Button("Reserve Bench", "bench_alloc/test.png");
 
       // Document is the application root
       var doc = this.getRoot();
@@ -68,7 +68,7 @@ qx.Class.define("bench_alloc.Application",
 
       // Add an event listener
       button1.addListener("execute", function(e) {
-        alert("Hello World!");
+        alert("Congratulations, you just reserved a bench! Well done!");
       });
     }
   }
