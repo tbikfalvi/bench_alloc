@@ -22,7 +22,16 @@ qx.Class.define("bench_alloc.Application",
   extend : qx.application.Standalone,
 
 
+  construct : function()
+  {
+    this.__header = new bench_alloc.Header();
+  },
 
+  destruct : function()
+  {
+    this._disposeObjects( "__header" );
+  },
+    
   /*
   *****************************************************************************
      MEMBERS
@@ -37,6 +46,11 @@ qx.Class.define("bench_alloc.Application",
      * 
      * @lint ignoreDeprecated(alert)
      */
+
+    __header: null,
+
+    __userName: "",
+
     main : function()
     {
       // Call super class
@@ -57,19 +71,26 @@ qx.Class.define("bench_alloc.Application",
       -------------------------------------------------------------------------
       */
 
-      // Create a button
-      var button1 = new qx.ui.form.Button("Reserve Bench", "bench_alloc/test.png");
-
-      // Document is the application root
+      var that = this;
       var doc = this.getRoot();
+      var composite = new qx.ui.container.Composite();
+      composite.setLayout(new qx.ui.layout.VBox());
 
-      // Add button to document at fixed coordinates
-      doc.add(button1, {left: 100, top: 50});
+      composite.add(this.__header);
 
-      // Add an event listener
-      button1.addListener("execute", function(e) {
-        alert("Congratulations, you just reserved a bench! Well done!");
+      var toolbar = new qx.ui.toolbar.ToolBar();
+      composite.add(toolbar);
+
+      var changeUserButton = new qx.ui.toolbar.Button();
+      changeUserButton.setToolTipText("Change user");
+      changeUserButton.setIcon("bench_alloc/test.png");
+      changeUserButton.setShow("icon");
+      changeUserButton.addListener("execute", function() {
+        that.__header.updateUser("Bob");
       });
+      toolbar.add(changeUserButton);
+
+      doc.add(composite, {edge:0});
     }
   }
 });

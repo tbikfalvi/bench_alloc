@@ -6,18 +6,18 @@
     "summary" : "Custom Application",
     "description" : "This is a skeleton for a custom application with qooxdoo.",
     
-    "homepage" : "http://some.homepage.url/",
+    "homepage" : "",
 
-    "license" : "SomeLicense",
+    "license" : "Free",
     "authors" : 
     [
       {
-        "name" : "First Author (uid)",
-        "email" : "first.author@some.domain"
+        "name" : "Peter Ballok",
+        "email" : "pballok@gmail.com"
       }
     ],
 
-    "version" : "trunk",
+    "version" : "0.1",
     "qooxdoo-versions": ["2.0.1"]
   },
   
