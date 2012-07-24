@@ -71,7 +71,6 @@ qx.Class.define("bench_alloc.Application",
       -------------------------------------------------------------------------
       */
 
-      var that = this;
       var doc = this.getRoot();
       var composite = new qx.ui.container.Composite();
       composite.setLayout(new qx.ui.layout.VBox());
@@ -85,12 +84,20 @@ qx.Class.define("bench_alloc.Application",
       changeUserButton.setToolTipText("Change user");
       changeUserButton.setIcon("bench_alloc/test.png");
       changeUserButton.setShow("icon");
-      changeUserButton.addListener("execute", function() {
-        that.__header.updateUser("Bob");
-      });
+      changeUserButton.addListener("execute", this.__changeUser, this);
       toolbar.add(changeUserButton);
 
       doc.add(composite, {edge:0});
+    },
+
+    __changeUser : function(e)
+    {
+      var result = window.prompt("User name: ", this.__userName);
+      if (result!=null)
+      {
+        this.__userName = result;
+        this.__header.updateUser(this.__userName);
+      }
     }
   }
 });
