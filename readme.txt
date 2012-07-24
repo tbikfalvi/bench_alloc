@@ -1,11 +1,6 @@
-Desktop Skeleton - A qooxdoo Application Template
-==================================================
+bench_alloc is a simple tool that lets users allocate a Test Bench.
+No authentication is used, so everyone can just overwrite the allocations made
+by other people (in case they are on holiday or something).
 
-This is a qooxdoo application skeleton which is used as a template. The 
-'create-application.py' script (usually under tool/bin/create-application.py)
-will use this and expand it into a self-contained qooxdoo application which 
-can then be further extended. Please refer to the script and other documentation
-for further information.
+The list of allocable resources (Benches) is read in from a MySQL database.
 
-short:: is a standard qooxdoo GUI application
-copy_file:: tool/data/generator/needs_generation.js source/script/custom.js
