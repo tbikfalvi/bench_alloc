@@ -82,7 +82,7 @@ qx.Class.define("bench_alloc.Application",
 
       var changeUserButton = new qx.ui.toolbar.Button();
       changeUserButton.setToolTipText("Change user");
-      changeUserButton.setIcon("bench_alloc/test.png");
+      changeUserButton.setIcon("bench_alloc/refresh_user.png");
       changeUserButton.setShow("icon");
       changeUserButton.addListener("execute", this.__changeUser, this);
       toolbar.add(changeUserButton);
